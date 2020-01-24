@@ -17,32 +17,8 @@ class AndroidPathProviderPlugin: MethodCallHandler {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getAlarmsPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_ALARMS).getAbsolutePath());
-    // } else if (call.method == "getAudiobooksPath") {
-      // result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_AUDIOBOOKS).getAbsolutePath());
-    } else if (call.method == "getDCIMPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
-    } else if (call.method == "getDocumentsPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath());
-    } else if (call.method == "getDownloadsPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
-    } else if (call.method == "getMoviesPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getAbsolutePath());
-    } else if (call.method == "getMusicPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath());
-    } else if (call.method == "getNotificationsPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS).getAbsolutePath());
-    } else if (call.method == "getPicturesPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath());
-    } else if (call.method == "getPodcastsPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PODCASTS).getAbsolutePath());
-    } else if (call.method == "getRingtonesPath") {
-      result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_RINGTONES).getAbsolutePath());
-    // } else if (call.method == "getScreenshotsPath") {
-      // result.success(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_SCREENSHOTS).getAbsolutePath());
-    } else {
-      result.notImplemented()
+    if (call.method == Environment.DIRECTORY_DOWNLOADS) {
+      result.success(Environment.getDownloadCacheDirectory().absolutePath)
     }
   }
 }

@@ -31,7 +31,7 @@ class AndroidPathProvider {
 
   /// get Downloads path.
   static Future<String> get downloadsPath async {
-    final String version = await _channel.invokeMethod('getDownloadsPath');
+    final String version = await _channel.invokeMethod('Download');
     return version;
   }
 
